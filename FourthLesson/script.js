@@ -21,13 +21,19 @@ function modifyArr(arr, el, newEl){
     return `element ${el} is not found in array [${arr}]`
 };
 function transformString(str, el, newEl){
-    let string = str.toLowerCase();
-    let element = el.toLowerCase();
-    let i = string.indexOf(element);
-    if (i === -1){
-        return `element ${el} is not found in string [${str}]`
+    let newArr = str.split(" ");
+    let found = false;
+
+    newArr.forEach((element, i)=> {
+        if (element.toLowerCase() === el.toLowerCase()){
+             newArr[i] = newEl;
+            found = true;
+        }
+    });
+    if (found){
+        return str = newArr.join(" ");
     }
-    else {
-        return str = str.substring(0, i) + newEl + str.substring(i + el.length);
-    }
+    else return `element ${el} is not found in string [${str}]`
+    
 };
+console.log(transformString('hello my name is', 'mo', 'your'));
