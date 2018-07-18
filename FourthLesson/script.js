@@ -36,4 +36,3 @@ function transformString(str, el, newEl){
     else return `element ${el} is not found in string [${str}]`
     
 };
-console.log(transformString('hello my name is', 'mo', 'your'));
